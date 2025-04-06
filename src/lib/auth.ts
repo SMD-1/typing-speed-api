@@ -8,7 +8,7 @@ export const auth = betterAuth({
     provider: "pg",
     schema: { user, account, session, verification },
   }),
-  trustedOrigins: ["http://localhost:5173"],
+  trustedOrigins: ["http://localhost:5173", "https://typiingspeed.netlify.app"],
   emailAndPassword: {
     enabled: true,
   },
