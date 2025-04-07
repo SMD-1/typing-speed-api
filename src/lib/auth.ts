@@ -9,6 +9,18 @@ export const auth = betterAuth({
     schema: { user, account, session, verification },
   }),
   trustedOrigins: ["http://localhost:5173", "https://typiingspeed.netlify.app"],
+  advanced: {
+    crossSubDomainCookies: {
+      enabled: true,
+      domain: process.env.COOKIE_DOMAIN || undefined, // Domain with a leading period
+    },
+    defaultCookieAttributes: {
+      secure: true,
+      // httpOnly: true,
+      sameSite: "none", // Allows CORS-based cookie sharing across subdomains
+      // partitioned: true, // New browser standards will mandate this for foreign cookies
+    },
+  },
   emailAndPassword: {
     enabled: true,
   },
